@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
+// Route::get('/', function () {
+//     return view('master');
+// });
 
 Route::get('/admin', function() {
 	return view('backend.pages.index');
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/user', 'HomeController@userList');
+Route::get('/userlist', 'HomeController@datatableListUser')->name('userlist');
